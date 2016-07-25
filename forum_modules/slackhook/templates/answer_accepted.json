@@ -1,0 +1,15 @@
+{% with user=answer.nstate.accepted.by %}
+
+{
+    "attachments": [
+        {
+            "pretext": "{{user}} has just accepted {{answer.author}}'s answer on his question {{app_name}}",
+            "title": "{{answer.question}}",
+            "title_link": "{{url}}",
+            "text": "{{ answer.question.html|safe }}",
+            "color": "#7CD197"
+        }
+    ]
+}
+
+{% endwith %}

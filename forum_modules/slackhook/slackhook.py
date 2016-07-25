@@ -18,7 +18,7 @@ def question_posted(action, new):
     question_url = fsettings.APP_URL + question.get_absolute_url()
     data = send_template_message("modules/slackhook/new_question.json",{'answer': question, 'app_name': fsettings.APP_SHORT_NAME, 'url':question_url})
     if slack_hook_url:
-        values = dict(payload=data)
+        values = dict(payload=data.encode('utf-8'))
         data = urllib.urlencode(values)
         req = urllib2.Request(slack_hook_url, data)
         rsp = urllib2.urlopen(req)
@@ -33,7 +33,7 @@ def answer_posted(action, new):
     question_url = fsettings.APP_URL + answer.question.get_absolute_url()
     data = send_template_message("modules/slackhook/new_answer.json",{'answer': answer, 'app_name': fsettings.APP_SHORT_NAME, 'url':question_url})
     if slack_hook_url:
-        values = dict(payload=data)
+        values = dict(payload=data.encode('utf-8'))
         data = urllib.urlencode(values)
         req = urllib2.Request(slack_hook_url, data)
         rsp = urllib2.urlopen(req)
@@ -48,7 +48,7 @@ def answer_accepted(action, new):
     question_url = fsettings.APP_URL + question.get_absolute_url()
     data = send_template_message("modules/slackhook/answer_accepted.json",{'answer': action.node, 'app_name': fsettings.APP_SHORT_NAME, 'url':question_url})
     if slack_hook_url:
-        values = dict(payload=data)
+        values = dict(payload=data.encode('utf-8'))
         data = urllib.urlencode(values)
         req = urllib2.Request(slack_hook_url, data)
         rsp = urllib2.urlopen(req)

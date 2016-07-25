@@ -1,0 +1,15 @@
+{% with user=answer.user %}
+
+{
+    "attachments": [
+        {
+            "pretext": "{{user}} has just posted a new question on {{app_name}}",
+            "title": "{{answer}}",
+            "title_link": "{{url}}",
+            "text": "{{ answer.html|safe }}",
+            "color": "#439FE0"
+        }
+    ]
+}
+
+{% endwith %}

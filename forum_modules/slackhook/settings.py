@@ -2,7 +2,6 @@ from forum.settings.base import Setting, SettingSet
 from django.forms.widgets import Textarea
 from django.core.urlresolvers import reverse
 from forum.settings import APP_URL
-from slackhook import *
 
 SLACKBOT_SET = SettingSet('slackbot', 'Slack bot', "Set up slack bot.", 3000)
 

@@ -6,7 +6,7 @@
             "pretext": "{{user}} has just posted a new question on {{app_name}}",
             "title": "{{answer}}",
             "title_link": "{{url}}",
-            "text": "{{ answer.html|safe }}",
+            "text": "{{ content|safe }}",
             "color": "#439FE0"
         }
     ]
